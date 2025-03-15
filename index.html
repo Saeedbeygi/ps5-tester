@@ -1595,6 +1595,12 @@ function lf(k, f) { la(k, buf2hex(f.buffer)); return f; }
     <p>Device Name: <span id="device-name">Unknown</span></p>
     <button id="update-button">Update Device</button>
     <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            if (typeof devname !== "undefined") {
+                document.getElementById("device-name").textContent = devname || "No device found";
+            }
+        });
+        
         document.getElementById("update-button").addEventListener("click", function() {
             alert("Update button clicked!");
         });
